@@ -22,10 +22,10 @@ void	kill_child_processes(t_table *table, t_philo *philo)
 		kill(philo[i].pid, SIGKILL);
 		i++;
 	}
-	sem_unlink("/my_fork");
+	sem_unlink("/fork");
 	sem_unlink("/stop");
 	sem_unlink("/log");
-	sem_unlink("/fork_drawer");
+	sem_unlink("/forks");
 	sem_close(table->fork);
 	sem_close(table->log);
 	sem_close(table->stop);
