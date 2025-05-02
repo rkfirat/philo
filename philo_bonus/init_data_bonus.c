@@ -30,7 +30,7 @@ void	init_args(t_philo *philo, int argc, char **argv, t_table *table)
 		return (sem_close(table->forks), sem_close(table->fork),
 			printf("sem_open /log"), free(philo),
 			free(table), exit(1));
-	table->stop = sem_open("/stop", O_CREAT, 0644, 1);
+	table->stop = sem_open("/stop", O_CREAT, 0644, 0);
 	if (table->stop == SEM_FAILED)
 		return (sem_close(table->log), sem_close(table->forks),
 			sem_close(table->fork), printf("sem_open /stop"),
