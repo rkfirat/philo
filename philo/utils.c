@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rfirat <rfirat@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rfirat <rfirat@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 16:34:25 by rfirat            #+#    #+#             */
-/*   Updated: 2025/04/28 20:12:38 by rfirat           ###   ########.fr       */
+/*   Updated: 2025/06/26 00:45:07 by rfirat           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ void	kill_philo(t_philo *philos, t_table *table, int i)
 	pthread_mutex_lock(&table->death_check);
 	philos->table->is_table_over = 1;
 	time = get_time() - philos->table->start_time;
+	pthread_mutex_lock(&table->log_mutex);
 	printf("%ld %d died\n", time, philos[i].id);
+	pthread_mutex_unlock(&table->log_mutex);
 	pthread_mutex_unlock(&table->death_check);
 }

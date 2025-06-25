@@ -1,5 +1,5 @@
 NAME = philo
-CFLAGS = -Wall -Wextra -Werror -g -fsanitize=thread -pthread
+CFLAGS = -Wall -Wextra -Werror -g -pthread
 
 SRCS = check_args.c  init_data.c  philo.c  routine.c  utils.c monitor.c
 
